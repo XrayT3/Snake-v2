@@ -153,9 +153,9 @@ bool checkCollisions(snake_t *snake, desk_t *desk) {
     }
     if (
         snake->snake_skeleton[0].x == 1  ||
-        snake->snake_skeleton[0].x == desk->width  ||
+        snake->snake_skeleton[0].x == (desk->width - 1) ||
         snake->snake_skeleton[0].y == 1  ||
-        snake->snake_skeleton[0].y == desk->height
+        snake->snake_skeleton[0].y == (desk->height - 1)
     ) {
         ret = true;
     }
