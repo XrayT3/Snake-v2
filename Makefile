@@ -5,7 +5,7 @@ CPPFLAGS = -I .
 CFLAGS =-g -std=gnu99 -O1 -Wall
 CXXFLAGS = -g -std=gnu++11 -O1 -Wall
 LDFLAGS = -lrt -lpthread
-#LDLIBS = -lm
+LDLIBS = -lm
 
 SOURCES = SOURCES = desk.c food.c gui.h gui.c menu.h menu.c snake.h snake_types.h two_snakes.c main.c snake.c
 SOURCES += font_rom8x16.c mzapo_parlcd.c mzapo_phys.c
