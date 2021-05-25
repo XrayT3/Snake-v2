@@ -250,7 +250,7 @@ void drawDesk_2_snakes(desk_t *desk, snake_t *snake, snake_t *snake2, cell_t *fo
                     )
                     {
                         if(k == 0)
-                            draw_snake(j*size_Cell, i*size_Cell, 0xE800); // draw head snake
+                            draw_snake(j*size_Cell, i*size_Cell, 0xF800); // draw head snake
                         else
                             draw_snake(j*size_Cell, i*size_Cell, 0xC000); //red snake2
                     }
