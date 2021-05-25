@@ -19,7 +19,6 @@ snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int init
     for (int i = 0; i < 2; i++) {
         snake->snake_skeleton[i].x = initSnakeX + i;
         snake->snake_skeleton[i].y = initSnakeY;
-        desk->field[initSnakeX+i + initSnakeY*displayWidth].content = 's';
     }
     return snake;
 }
@@ -36,7 +35,6 @@ snake_t *initSnakeAI(int displayWidth, int displayHeight, int initSnakeX, int in
     for (int i = 0; i < 2; i++) {
         snake->snake_skeleton[i].x = initSnakeX + i;
         snake->snake_skeleton[i].y = initSnakeY;
-        desk->field[initSnakeX+i + initSnakeY*displayWidth].content = 's';
     }
     return snake;
 }
@@ -45,7 +43,6 @@ void increaseSnake(snake_t *snake, int x, int y, desk_t* desk) {
     snake->length += 1;
     snake->snake_skeleton[snake->length].x = x;
     snake->snake_skeleton[snake->length].y = y;
-    desk->field[desk->width*y + x].content = 's';
 }
 
 void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
@@ -57,7 +54,6 @@ void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
         snake->snake_skeleton[snake->length].y, 
     };
 
-    desk->field[snake->snake_skeleton[snake->length].x*desk->width + snake->snake_skeleton[snake->length].y].content = 'e';
     for (int k = snake->length; k > 0; k--) {
         snake->snake_skeleton[k].x = snake->snake_skeleton[k - 1].x;
         snake->snake_skeleton[k].y = snake->snake_skeleton[k - 1].y;
@@ -93,7 +89,6 @@ void moveSnakeAI(snake_t *snake, food_t *food, desk_t *desk) {
         snake->snake_skeleton[snake->length].y, 
     };
 
-    desk->field[snake->snake_skeleton[snake->length].x*desk->width + snake->snake_skeleton[snake->length].y].content = 'e';
     for (int k = snake->length; k > 0; k--) {
         snake->snake_skeleton[k].x = snake->snake_skeleton[k - 1].x;
         snake->snake_skeleton[k].y = snake->snake_skeleton[k - 1].y;
@@ -121,19 +116,15 @@ void snakeStep(snake_t *snake, desk_t *desk) {
     switch (snake->direction) {
         case LEFT:
             snake->snake_skeleton[0].x -= 1;
-            desk->field[snake->snake_skeleton[0].x*desk->width + snake->snake_skeleton[0].y].content = 's';
             break;
         case RIGHT:
             snake->snake_skeleton[0].x += 1;
-            desk->field[snake->snake_skeleton[0].x*desk->width + snake->snake_skeleton[0].y].content = 's';
             break;
         case UP:
             snake->snake_skeleton[0].y -= 1;
-            desk->field[snake->snake_skeleton[0].x*desk->width + snake->snake_skeleton[0].y].content = 's';
             break;
         case DOWN:
             snake->snake_skeleton[0].y += 1;
-            desk->field[snake->snake_skeleton[0].x*desk->width + snake->snake_skeleton[0].y].content = 's';
             break;
     }
 }

@@ -7,7 +7,6 @@ desk_t *initDesk(int width, int height) {
     desk_t *desk = (desk_t *)malloc(sizeof(desk_t));
     desk->width = width;
     desk->height = height;
-    desk->field = (cell_t*)malloc(sizeof(cell_t) * width * height);
     return desk;
 }
 
