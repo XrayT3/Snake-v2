@@ -37,7 +37,7 @@ void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food
         checkOtherSnakeCollisions(snake, secondSnake)
     ) {
         printf("Gameover!\n");
-        snake->gameOver = 1;
+        snake->gameOver = true;
     }
 
     snakeEats(food, snake, desk, lastCoords[0], lastCoords[1]);
@@ -63,7 +63,7 @@ void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, de
         checkOtherSnakeCollisions(snake, secondSnake)
     ) {
         printf("Gameover!\n");
-        snake->gameOver = 1;
+        snake->gameOver = true;
     }
     snakeEats(food, snake, desk, lastCoords[0], lastCoords[1]);
 }
@@ -71,9 +71,9 @@ void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, de
 int checkWallsCollisions(snake_t *snake, desk_t *desk) {
     if (
         snake->snake_skeleton[0].x == 1  ||
-        snake->snake_skeleton[0].x == desk->width + 1 ||
+        snake->snake_skeleton[0].x == (desk->width + 1) ||
         snake->snake_skeleton[0].y == 1  ||
-        snake->snake_skeleton[0].y == desk->height + 1
+        snake->snake_skeleton[0].y == (desk->height + 1)
     )   return 1;
     return 0;
 }
