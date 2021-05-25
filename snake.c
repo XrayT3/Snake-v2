@@ -45,7 +45,7 @@ void increaseSnake(snake_t *snake, int x, int y, desk_t* desk) {
     snake->snake_skeleton[snake->length].y = y;
 }
 
-void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
+void moveSnakeManual(snake_t *snake, cell_t *food, desk_t *desk){
     char ch;
     int r = read(0, &ch, 1);
 
@@ -81,7 +81,7 @@ void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
 
 }
 
-void moveSnakeAI(snake_t *snake, food_t *food, desk_t *desk) {
+void moveSnakeAI(snake_t *snake, cell_t *food, desk_t *desk) {
 
     //inputs part-------
     int lastCoords[2] = {
@@ -152,7 +152,7 @@ bool checkCollisions(snake_t *snake, desk_t *desk) {
     return ret;
 }
 
-void snakeController(snake_t *snake, desk_t *desk, food_t *food) {
+void snakeController(snake_t *snake, desk_t *desk, cell_t *food) {
 
     int dx, dy;
 
@@ -197,7 +197,7 @@ void snakeController(snake_t *snake, desk_t *desk, food_t *food) {
     }
 }
 
-void snakeEats(food_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY) {
+void snakeEats(cell_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY) {
     if (
         snake->snake_skeleton[0].x == food->x &&
         snake->snake_skeleton[0].y == food->y

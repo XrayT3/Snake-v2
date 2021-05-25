@@ -76,7 +76,7 @@ int main() {
     snake_t *snakeAI;
     snake_t *snakeAI2;
     desk_t *desk;
-    food_t *food;
+    cell_t *food;
     desk = initDesk(16, 14);
     food = initFood(4, 4);
     snake = initSnake(16, 14, 5, 5, 'a', 'd', desk);

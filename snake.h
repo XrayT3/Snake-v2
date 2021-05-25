@@ -17,7 +17,7 @@ snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int init
 snake_t *initSnakeAI(int displayWidth, int displayHeight, int initSnakeX, int initSnakeY, desk_t* desk);
 
 //Initialize snake food
-food_t *initFood(int coordX, int coordY);
+cell_t *initFood(int coordX, int coordY);
 
 //Initialize game field
 desk_t *initDesk(int width, int height);
@@ -26,24 +26,24 @@ desk_t *initDesk(int width, int height);
 void freeSnake(snake_t *snake);
 
 //Delete snake food when game is finished
-void freeFood(food_t *food);
+void freeFood(cell_t *food);
 
 //Delete game field when game is finished
 void freeDesk(desk_t *desk);
 
 //Snake makes its move per one frame according to player's commands
-void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk);
+void moveSnakeManual(snake_t *snake, cell_t *food, desk_t *desk);
 
-void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, desk_t *desk);
+void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food, desk_t *desk);
 
 //Snake makes its move per one frame according to AI's commands
-void moveSnakeAI(snake_t *snake, food_t *food, desk_t *desk);
+void moveSnakeAI(snake_t *snake, cell_t *food, desk_t *desk);
 
 //Increase snake when it's got point
 void increaseSnake(snake_t *snake, int x, int y, desk_t* desk);
 
 //Check if snake can get a point during one move
-void snakeEats(food_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY);
+void snakeEats(cell_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY);
 
 bool checkCollisions(snake_t *snake, desk_t *desk);
 
@@ -54,13 +54,13 @@ int checkItselfCollisions(snake_t *snake);
 int checkOtherSnakeCollisions(snake_t *snake, snake_t *secondSnake);
 
 //Update snake food's location when snake's got a point
-void updateFood(desk_t *desk, food_t *food, snake_t *snake, snake_t *secondSnake);
+void updateFood(desk_t *desk, cell_t *food, snake_t *snake, snake_t *secondSnake);
 
 //Snake makes one step forward 
 void snakeStep(snake_t *snake, desk_t* desk);
 
 //Snake's AI
-void snakeController(snake_t *snake, desk_t *desk, food_t *food);
+void snakeController(snake_t *snake, desk_t *desk, cell_t *food);
 
 //Check if there is an obstacle before snake
 int obstacleBeforeSnake(snake_t *snake, desk_t *desk);
@@ -89,6 +89,6 @@ int snakeLeftOfSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake);
 
 int snakeRightOfSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake);
 
-void snakeControllerTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *desk, food_t *food);
+void snakeControllerTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *desk, cell_t *food);
 
 int get_record(int a, int b, int c, int d);

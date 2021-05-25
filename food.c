@@ -4,19 +4,19 @@
 
 #include "snake.h"
 
-food_t *initFood(int coordX, int coordY) {
-    food_t *food = (food_t *)malloc(sizeof(food_t));
+cell_t *initFood(int coordX, int coordY) {
+    cell_t *food = (cell_t *)malloc(sizeof(cell_t));
     food->x = coordX;
     food->y = coordY;
     return food;
 }
 
-void freeFood(food_t *food) {
+void freeFood(cell_t *food) {
     free(food);
     food = NULL;
 }
 
-void updateFood(desk_t *desk, food_t *food, snake_t *snake, snake_t *secondSnake) {
+void updateFood(desk_t *desk, cell_t *food, snake_t *snake, snake_t *secondSnake) {
     int newX, newY;
     int maxX = desk->width, minX = 1 + 1;
     int maxY = desk->height, minY = 1 + 1;

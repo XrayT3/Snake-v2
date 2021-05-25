@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h> 
 
-void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, desk_t *desk) {
+void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food, desk_t *desk) {
     //inputs part-------
     char ch;
     int r = read(0, &ch, 1);
@@ -43,7 +43,7 @@ void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food
     snakeEats(food, snake, secondSnake, desk, lastCoords[0], lastCoords[1]);
 }
 
-void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, desk_t *desk) {
+void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food, desk_t *desk) {
     //inputs part-------
     int lastCoords[2] = {
         snake->snake_skeleton[snake->length].x,
@@ -295,7 +295,7 @@ int snakeRightOfSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake) {
     return 0;
 }
 
-void snakeControllerTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *desk, food_t *food) {
+void snakeControllerTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *desk, cell_t *food) {
     int dx, dy;
     dx = food->x - snake->snake_skeleton[0].x;
     dy = food->y - snake->snake_skeleton[0].y;
