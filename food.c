@@ -18,8 +18,8 @@ void freeFood(food_t *food) {
 
 void updateFood(desk_t *desk, food_t *food, snake_t *snake) {
     int newX, newY;
-    int maxX = desk->endX - 1, minX = desk->startX + 1;
-    int maxY = desk->endY - 1, minY = desk->startY + 1;
+    int maxX = desk->width, minX = 1 + 1;
+    int maxY = desk->height, minY = 1 + 1;
     srand(time(NULL));
     calculate:
     newX = rand() % (maxX - minX) + minX;

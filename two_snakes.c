@@ -70,10 +70,10 @@ void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, food_t *food, de
 
 int checkWallsCollisions(snake_t *snake, desk_t *desk) {
     if (
-        snake->snake_skeleton[0].x == desk->startX  ||
-        snake->snake_skeleton[0].x == desk->endX  ||
-        snake->snake_skeleton[0].y == desk->startY  ||
-        snake->snake_skeleton[0].y == desk->endY
+        snake->snake_skeleton[0].x == 1  ||
+        snake->snake_skeleton[0].x == desk->width + 1  ||
+        snake->snake_skeleton[0].y == 1  ||
+        snake->snake_skeleton[0].y == desk->height + 1
     )   return 1;
     return 0;
 }
@@ -102,28 +102,28 @@ int obstacleBeforeSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *de
     int ret = 0;
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].y == (desk->startY + 1)
+        snake->snake_skeleton[0].y == (1 + 1)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].y == (desk->endY - 1)
+        snake->snake_skeleton[0].y == (desk->height)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].x == (desk->startX + 1)
+        snake->snake_skeleton[0].x == (1 + 1)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].x == (desk->endX - 1)
+        snake->snake_skeleton[0].x == (desk->width)
     ) {
         ret = 1;
         return ret;

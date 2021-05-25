@@ -183,8 +183,8 @@ void drawDesk(desk_t *desk, snake_t *snake, food_t *food, int sec, unsigned shor
     draw_time(sec);
     draw_wall(16, 14);
 
-    for (int i = desk->startY; i < desk->endY; i ++) {
-        for (int j = desk->startX; j < desk->endX; j++) {
+    for (int i = 0; i < desk->height; i ++) {
+        for (int j = 0; j < desk->width; j++) {
             if (
                 (j == food->x) &&
                 (i == food->y)
@@ -218,8 +218,8 @@ void drawDesk_2_snakes(desk_t *desk, snake_t *snake, snake_t *snake2, food_t *fo
     draw_score_2_snakes(snake2->score);
     draw_time(sec);
     draw_wall(16, 14); 
-    for (int i = desk->startY; i < desk->endY; i ++) {
-        for (int j = desk->startX; j < desk->endX; j++) {
+    for (int i = 0; i < desk->height; i ++) {
+        for (int j = 0; j < desk->width; j++) {
             if (
                 (j == food->x) &&
                 (i == food->y)

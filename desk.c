@@ -22,28 +22,28 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
     int ret = 0;
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].y == (desk->startY + 1)
+        snake->snake_skeleton[0].y == (1 + 1)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].y == (desk->endY - 1)
+        snake->snake_skeleton[0].y == (desk->height)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].x == (desk->startX + 1)
+        snake->snake_skeleton[0].x == (1 + 1)
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].x == (desk->endX - 1)
+        snake->snake_skeleton[0].x == (desk->width)
     ) {
         ret = 1;
         return ret;
@@ -88,19 +88,19 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
 int obstacleLeftOfSnake(snake_t *snake, desk_t *desk) {
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].x == (desk->startX + 1)
+        snake->snake_skeleton[0].x == (1 + 1)
     )   return 1;
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].x == (desk->endX - 1)
+        snake->snake_skeleton[0].x == (desk->width)
     )   return 1;
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].y == (desk->endY - 1)
+        snake->snake_skeleton[0].y == (desk->height)
     )   return 1;
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].y == (desk->startY + 1)
+        snake->snake_skeleton[0].y == (1 + 1)
     )   return 1;
     
     return 0;
@@ -109,19 +109,19 @@ int obstacleLeftOfSnake(snake_t *snake, desk_t *desk) {
 int obstacleRightOfSnake(snake_t *snake, desk_t *desk) {
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].x == (desk->endX - 1)
+        snake->snake_skeleton[0].x == (desk->width)
     )   return 1;
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].x == (desk->startX + 1)
+        snake->snake_skeleton[0].x == (1 + 1)
     )   return 1;
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].y == (desk->startY + 1)
+        snake->snake_skeleton[0].y == (1 + 1)
     )   return 1;
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].y == (desk->endY - 1)
+        snake->snake_skeleton[0].y == (desk->height)
     )   return 1;
     return 0;
 }
