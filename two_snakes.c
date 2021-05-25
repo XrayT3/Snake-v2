@@ -70,10 +70,10 @@ void moveSnakeAITwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food, de
 
 int checkWallsCollisions(snake_t *snake, desk_t *desk) {
     if (
-        snake->snake_skeleton[0].x == 1  ||
-        snake->snake_skeleton[0].x == desk->width -1 ||
-        snake->snake_skeleton[0].y == 1  ||
-        snake->snake_skeleton[0].y == desk->height -1 
+        snake->snake_skeleton[0].x == 0  ||
+        snake->snake_skeleton[0].x == desk->width  ||
+        snake->snake_skeleton[0].y == 0  ||
+        snake->snake_skeleton[0].y == desk->height 
     )   return 1;
     return 0;
 }
