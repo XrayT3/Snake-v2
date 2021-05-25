@@ -5,7 +5,7 @@ void draw_wall(int c, int r);
 
 void draw_food(int x, int y);
 
-void draw_snake(int x, int y);
+void draw_snake(int x, int y, int color);
 
 int char_width(int ch);
 

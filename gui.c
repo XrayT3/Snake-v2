@@ -25,16 +25,16 @@ void draw_wall(int c, int r) {
   // up
   for (int i = 0; i < c+1; i++){
     for (int x = 0; x < size_cell; x++){
-      for(int y = size_cell/2; y < size_cell; y++){
-        draw_pixel(i*size_cell+x+(size_cell/4), 0+y, 65535);
+      for(int y = size_cell/2+2; y < size_cell; y++){
+        draw_pixel(i*size_cell+x+(size_cell/4)+5, 0+y, 65535);
       }
     }
   }
   // down
   for (int i = 0; i < c+1; i++){
     for (int x = 0; x < size_cell; x++){
-      for(int y = size_cell/2; y < size_cell; y++){
-        draw_pixel(i*size_cell+x+(size_cell/4), 300+y-(size_cell/2), 65535);
+      for(int y = size_cell/2; y < size_cell-2; y++){
+        draw_pixel(i*size_cell+x+(size_cell/4)+5, 300+y-(size_cell/2), 65535);
       }
     }
   }
@@ -42,7 +42,7 @@ void draw_wall(int c, int r) {
   for (int i = 1; i < r+1; i++){
     for (int x = size_cell/2; x < size_cell; x++){
       for(int y = 0; y < size_cell; y++){
-        draw_pixel(0+x, i*size_cell+y+(size_cell/4), 65535);
+        draw_pixel(0+x, i*size_cell+y+(size_cell/4)-5, 65535);
       }
     }
   }
@@ -50,7 +50,7 @@ void draw_wall(int c, int r) {
   for (int i = 1; i < r+1; i++){
     for (int x = size_cell/2; x < size_cell; x++){
       for(int y = 0; y < size_cell; y++){
-        draw_pixel(340+x-(size_cell/2), i*size_cell+y+(size_cell/4), 65535);
+        draw_pixel(340+x-(size_cell/2), i*size_cell+y+(size_cell/4)-5, 65535);
       }
     }
   }
@@ -60,16 +60,16 @@ void draw_food(int x, int y) {
   int i, j;
   for (i = 0; i < size_cell; i++){
     for (j = 0; j < size_cell; j++){
-      draw_pixel(x+i, y+j, 2016);
+      draw_pixel(x+i, y+j, 2016); // green
     }
   }
 }
 
-void draw_snake(int x, int y) {
+void draw_snake(int x, int y, int color) {
   int i, j;
   for (i = 0; i < size_cell; i++){
     for (j = 0; j < size_cell; j++){
-      draw_pixel(x+i, y+j, 31);
+      draw_pixel(x+i, y+j, color); // blue - 31
     }
   }
 }
