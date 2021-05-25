@@ -114,9 +114,8 @@ start_game:
                 fast = a;
                 draw_speed_ctrl(fb, slow, medium, fast);
             }
-            else if (ch == ' ') {
+            else if (ch == ' ')
                 break;
-            }
         }
     }
     // draw_set_players();
@@ -160,15 +159,12 @@ start_game:
                 quit = 1 - quit;
                 draw_EndGame(fb, snake->score, retry, quit);
             }
-            else if (ch == ' ') {
+            else if (ch == ' ')
                 break;
-            }
         }
     }
-
-    if (retry == 1) {
+    if (retry == 1)
         goto start_game;
-    }
 Menu:
     draw_Menu(fb, standard, demo, Exit);
     rgb_LED(16711935); //purple
@@ -191,14 +187,12 @@ Menu:
                 Exit = a;
                 draw_Menu(fb, standard, demo, Exit);
             }
-            else if (ch == ' ') {
+            else if (ch == ' ')
                 break;
-            }
         }
     }
-    if (1 - Exit) {
+    if (1 - Exit)
         goto start_game;
-    }
 
     // exit:
     rgb_LED(0); // off

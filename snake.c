@@ -245,7 +245,6 @@ int get_record(int a, int b, int c, int d){
 }
 
 void freeSnake(snake_t *snake) {
-
     free(snake->snake_skeleton);
     snake->snake_skeleton = NULL;
     free(snake);
