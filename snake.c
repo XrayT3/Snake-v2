@@ -75,8 +75,7 @@ void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
     //logic part--------
     snakeStep(snake, desk);
     if (
-        checkCollisions(snake, desk)   
-        // || checkItselfCollisions(snake)        
+        checkCollisions(snake, desk)      
     ) {
         // printf("Gameover!\n");
         snake->gameOver = true;

@@ -22,7 +22,7 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
     }
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].y == desk->height - 1
+        snake->snake_skeleton[0].y == desk->height - 2
     ) {
         ret = 1;
         return ret;
@@ -36,7 +36,7 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
     }
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].x == desk->width - 1
+        snake->snake_skeleton[0].x == desk->width - 2
     ) {
         ret = 1;
         return ret;
