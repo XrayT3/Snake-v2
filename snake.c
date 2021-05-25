@@ -141,6 +141,24 @@ void snakeStep(snake_t *snake, desk_t *desk) {
 
 bool checkCollisions(snake_t *snake, desk_t *desk) {
     bool ret = false;
+    for (int k = 1; k < snake->length ; k++) {
+        if (
+            snake->snake_skeleton[k].x == snake->snake_skeleton[0].x &&
+            snake->snake_skeleton[k].y == snake->snake_skeleton[0].y 
+
+        ) {
+            ret = true;
+            break;
+        }
+    }
+    if (
+        snake->snake_skeleton[0].x == 1  ||
+        snake->snake_skeleton[0].x == desk->width  ||
+        snake->snake_skeleton[0].y == 1  ||
+        snake->snake_skeleton[0].y == desk->height
+    ) {
+        ret = true;
+    }
     return ret;
 }
 

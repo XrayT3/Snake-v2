@@ -7,6 +7,7 @@
 #include <time.h>
 #include <math.h>
 #include <termios.h>
+#include <stdbool.h>
 
 #include "snake.h"
 #include "mzapo_parlcd.h"
@@ -90,7 +91,7 @@ int main() {
     snake2 = initSnake(16, 14, 10, 10, 'j', 'l', desk);
     snakeAI = initSnakeAI(16, 14, 5, 5, desk);
     snakeAI2 = initSnakeAI(16, 14, 10, 10, desk);
-    snake->gameOver = 0;
+    snake->gameOver = false;
     draw_speed_ctrl(fb, slow, medium, fast);
     ch = '1';
     while (ch!=' ')
@@ -122,7 +123,7 @@ int main() {
     speed = 100*fast + 250*medium + 500*slow;
     start = clock();
     rgb_LED(65280); //green
-    while ((1-snake->gameOver) & (1-snake2->gameOver)) {
+    while (!snake->gameOver && !snake2->gameOver) {
         now = clock();
         ns = (now-start) / 1000;
         sec = ns / 1000;
@@ -137,7 +138,7 @@ int main() {
                 moveSnakeAITwoSnakes(snakeAI, snakeAI2, food, desk);
                 moveSnakeAITwoSnakes(snakeAI2, snakeAI, food, desk);
                 drawDesk_2_snakes(desk, snakeAI, snakeAI2, food, sec, fb);
-                if (snakeAI->gameOver | snakeAI2->gameOver){
+                if (snakeAI->gameOver || snakeAI2->gameOver){
                     break;
                 }
             }
