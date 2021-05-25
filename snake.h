@@ -6,6 +6,9 @@
 #define INIT_LEN 2
 
 #include "font_types.h"
+#include "types.h"
+
+#include <stdbool.h>
 
 //Initialize snake that will be controlled manually
 snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int initSnakeY, char turnLeft, char turnRight, desk_t* desk);
