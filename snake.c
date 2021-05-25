@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <unistd.h> 
 
-#include "types.h"
 #include "snake.h"
 
 snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int initSnakeY, char turnLeft, char turnRight, desk_t* desk) {

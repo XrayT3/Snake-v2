@@ -3,7 +3,6 @@
 #include <time.h>
 
 #include "snake.h"
-#include "types.h"
 
 food_t *initFood(int coordX, int coordY) {
     food_t *food = (food_t *)malloc(sizeof(food_t));

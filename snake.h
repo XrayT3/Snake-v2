@@ -6,7 +6,7 @@
 #define INIT_LEN 2
 
 #include "font_types.h"
-#include "types.h"
+#include "menu.h"
 
 #include <stdbool.h>
 

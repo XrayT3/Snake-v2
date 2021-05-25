@@ -76,20 +76,20 @@ int main() {
     snake_t *snakeAI2;
     desk_t *desk;
     food_t *food;
-    desk = initDesk(16, 14, 1, 1);
+    desk = initDesk(16, 14);
     food = initFood(4, 4);
-    snake = initSnake(16, 14, 5, 5, 'a', 'd');
-    snake2 = initSnake(16, 14, 10, 10, 'j', 'l');
-    snakeAI = initSnakeAI(16, 14, 5, 5);
-    snakeAI2 = initSnakeAI(16, 14, 10, 10);
+    snake = initSnake(16, 14, 5, 5, 'a', 'd', desk);
+    snake2 = initSnake(16, 14, 10, 10, 'j', 'l', desk);
+    snakeAI = initSnakeAI(16, 14, 5, 5, desk);
+    snakeAI2 = initSnakeAI(16, 14, 10, 10, desk);
 
     goto Menu;
     start_game:
     food = initFood(4, 4);
-    snake = initSnake(16, 14, 5, 5, 'a', 'd');
-    snake2 = initSnake(16, 14, 10, 10, 'j', 'l');
-    snakeAI = initSnakeAI(16, 14, 5, 5);
-    snakeAI2 = initSnakeAI(16, 14, 10, 10);
+    snake = initSnake(16, 14, 5, 5, 'a', 'd', desk);
+    snake2 = initSnake(16, 14, 10, 10, 'j', 'l', desk);
+    snakeAI = initSnakeAI(16, 14, 5, 5, desk);
+    snakeAI2 = initSnakeAI(16, 14, 10, 10, desk);
     snake->gameOver = 0;
     draw_speed_ctrl(fb, slow, medium, fast);
     ch = '1';
