@@ -43,7 +43,7 @@ void moveSnakeAI(snake_t *snake, food_t *food, desk_t *desk);
 void increaseSnake(snake_t *snake, int x, int y, desk_t* desk);
 
 //Check if snake can get a point during one move
-void snakeEats(food_t *food, snake_t *snake, desk_t *desk, int lastCoordX, int lastCoordY);
+void snakeEats(food_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY);
 
 bool checkCollisions(snake_t *snake, desk_t *desk);
 
@@ -54,7 +54,7 @@ int checkItselfCollisions(snake_t *snake);
 int checkOtherSnakeCollisions(snake_t *snake, snake_t *secondSnake);
 
 //Update snake food's location when snake's got a point
-void updateFood(desk_t *desk, food_t *food, snake_t *snake);
+void updateFood(desk_t *desk, food_t *food, snake_t *snake, snake_t *secondSnake);
 
 //Snake makes one step forward 
 void snakeStep(snake_t *snake, desk_t* desk);

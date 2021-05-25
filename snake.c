@@ -81,7 +81,7 @@ void moveSnakeManual(snake_t *snake, food_t *food, desk_t *desk){
         snake->gameOver = true;
     }
 
-    snakeEats(food, snake, desk, lastCoords[0], lastCoords[1]);
+    snakeEats(food, snake, NULL, desk, lastCoords[0], lastCoords[1]);
 
 }
 
@@ -113,7 +113,7 @@ void moveSnakeAI(snake_t *snake, food_t *food, desk_t *desk) {
         //change to gameover menu
     }
 
-    snakeEats(food, snake, desk, lastCoords[0], lastCoords[1]);
+    snakeEats(food, snake, NULL, desk, lastCoords[0], lastCoords[1]);
 }
 
 void snakeStep(snake_t *snake, desk_t *desk) {
@@ -206,14 +206,14 @@ void snakeController(snake_t *snake, desk_t *desk, food_t *food) {
     }
 }
 
-void snakeEats(food_t *food, snake_t *snake, desk_t *desk, int lastCoordX, int lastCoordY) {
+void snakeEats(food_t *food, snake_t *snake, snake_t *secondSnake, desk_t *desk, int lastCoordX, int lastCoordY) {
     if (
         snake->snake_skeleton[0].x == food->x &&
         snake->snake_skeleton[0].y == food->y
     ) {
         snake->score += 1;
         increaseSnake(snake, lastCoordX, lastCoordY, desk);
-        updateFood(desk, food, snake);
+        updateFood(desk, food, snake, secondSnake);
     }
 }
 

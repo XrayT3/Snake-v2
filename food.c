@@ -16,7 +16,7 @@ void freeFood(food_t *food) {
     food = NULL;
 }
 
-void updateFood(desk_t *desk, food_t *food, snake_t *snake) {
+void updateFood(desk_t *desk, food_t *food, snake_t *snake, snake_t *secondSnake) {
     int newX, newY;
     int maxX = desk->width, minX = 1 + 1;
     int maxY = desk->height, minY = 1 + 1;
@@ -31,6 +31,13 @@ void updateFood(desk_t *desk, food_t *food, snake_t *snake) {
             newY == snake->snake_skeleton[k].y
         )   goto calculate;
     }
+    if(secondSnake != NULL)
+        for (int k = 0; k < secondSnake->length; k++) {
+            if (
+                newX == secondSnake->snake_skeleton[k].x &&
+                newY == secondSnake->snake_skeleton[k].y
+            )   goto calculate;
+        }
 
     // printf("New coords: %d %d\n", newX, newY);
     food->x = newX;
