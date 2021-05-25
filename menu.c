@@ -198,7 +198,7 @@ void drawDesk(desk_t *desk, snake_t *snake, cell_t *food, int sec, unsigned shor
                     )
                     {
                         if(k == 0)
-                            draw_snake(j*size_Cell, i*size_Cell, 28); // draw head snake
+                            draw_snake(j*size_Cell, i*size_Cell, 36); // draw head snake
                         else
                             draw_snake(j*size_Cell, i*size_Cell, 31); // draw blue snake
                     }
@@ -236,14 +236,24 @@ void drawDesk_2_snakes(desk_t *desk, snake_t *snake, snake_t *snake2, cell_t *fo
                         j == (snake->snake_skeleton[k].x) &&
                         i == (snake->snake_skeleton[k].y) 
                     )
-                    draw_snake(j*size_Cell, i*size_Cell, 31); // blue snake
+                    {
+                        if(k == 0)
+                            draw_snake(j*size_Cell, i*size_Cell, 36); // draw head snake
+                        else
+                            draw_snake(j*size_Cell, i*size_Cell, 31); // blue snake
+                    }
                 }
                 for (int k = 0; k < snake2->length; k++) {
                     if (
                         j == (snake2->snake_skeleton[k].x) &&
                         i == (snake2->snake_skeleton[k].y) 
                     )
-                    draw_snake(j*size_Cell, i*size_Cell, 2016); // green snake2
+                    {
+                        if(k == 0)
+                            draw_snake(j*size_Cell, i*size_Cell, 2021); // draw head snake
+                        else
+                            draw_snake(j*size_Cell, i*size_Cell, 2016); // green snake2
+                    }
                 }
             }
         }
