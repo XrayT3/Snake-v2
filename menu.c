@@ -196,7 +196,12 @@ void drawDesk(desk_t *desk, snake_t *snake, cell_t *food, int sec, unsigned shor
                         j == (snake->snake_skeleton[k].x) &&
                         i == (snake->snake_skeleton[k].y) 
                     )
-                    draw_snake(j*size_Cell, i*size_Cell, 31); // blue snake
+                    {
+                        if(k == 0)
+                            draw_snake(j*size_Cell, i*size_Cell, 28); // draw head snake
+                        else
+                            draw_snake(j*size_Cell, i*size_Cell, 31); // draw blue snake
+                    }
                 }
             }
         }
