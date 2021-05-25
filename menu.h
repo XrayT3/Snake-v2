@@ -1,6 +1,6 @@
 
 #include "font_types.h"
-#include "snake_types.h"
+#include "types.h"
 
 void draw_pixel(int x, int y, int color);
 
