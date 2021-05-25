@@ -36,7 +36,7 @@ void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food
         checkItselfCollisions(snake)        ||
         checkOtherSnakeCollisions(snake, secondSnake)
     ) {
-        printf("Gameover!\n");
+        // printf("Gameover!\n");
         snake->gameOver = true;
     }
 
