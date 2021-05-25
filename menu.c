@@ -181,7 +181,7 @@ void drawDesk(desk_t *desk, snake_t *snake, cell_t *food, int sec, unsigned shor
     }
     draw_score(snake->score);
     draw_time(sec);
-    draw_wall(16, 14);
+    draw_wall(17, 15); // 16 14
 
     for (int i = 0; i < desk->height; i ++) {
         for (int j = 0; j < desk->width; j++) {
