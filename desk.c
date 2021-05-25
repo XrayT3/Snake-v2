@@ -8,13 +8,6 @@ desk_t *initDesk(int width, int height) {
     desk->width = width;
     desk->height = height;
     desk->field = (cell_t*)malloc(sizeof(cell_t) * width * height);
-    for(int i = 0; i < height; i++){
-        for(int j = 0; j < width; j++){
-            desk->field[i*width + j].x = j;
-            desk->field[i*width + j].y = i;
-            desk->field[i*width + j].content = 'e';
-        }
-    }
     return desk;
 }
 
@@ -22,28 +15,28 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
     int ret = 0;
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].y == (1 + 1)
+        snake->snake_skeleton[0].y == 2
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].y == (desk->height)
+        snake->snake_skeleton[0].y == desk->height
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].x == (1 + 1)
+        snake->snake_skeleton[0].x == 2
     ) {
         ret = 1;
         return ret;
     }
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].x == (desk->width)
+        snake->snake_skeleton[0].x == desk->width
     ) {
         ret = 1;
         return ret;
@@ -88,19 +81,19 @@ int obstacleBeforeSnake(snake_t *snake, desk_t *desk) {
 int obstacleLeftOfSnake(snake_t *snake, desk_t *desk) {
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].x == (1 + 1)
+        snake->snake_skeleton[0].x == 2
     )   return 1;
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].x == (desk->width)
+        snake->snake_skeleton[0].x == desk->width
     )   return 1;
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].y == (desk->height)
+        snake->snake_skeleton[0].y == desk->height
     )   return 1;
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].y == (1 + 1)
+        snake->snake_skeleton[0].y == 2
     )   return 1;
     
     return 0;
@@ -109,19 +102,19 @@ int obstacleLeftOfSnake(snake_t *snake, desk_t *desk) {
 int obstacleRightOfSnake(snake_t *snake, desk_t *desk) {
     if (
         snake->direction == UP &&
-        snake->snake_skeleton[0].x == (desk->width)
+        snake->snake_skeleton[0].x == desk->width
     )   return 1;
     else if (
         snake->direction == DOWN &&
-        snake->snake_skeleton[0].x == (1 + 1)
+        snake->snake_skeleton[0].x == 2
     )   return 1;
     else if (
         snake->direction == LEFT &&
-        snake->snake_skeleton[0].y == (1 + 1)
+        snake->snake_skeleton[0].y == 2
     )   return 1;
     else if (
         snake->direction == RIGHT &&
-        snake->snake_skeleton[0].y == (desk->height)
+        snake->snake_skeleton[0].y == desk->height
     )   return 1;
     return 0;
 }
