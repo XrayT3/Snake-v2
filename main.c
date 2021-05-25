@@ -136,9 +136,8 @@ int main() {
                 moveSnakeAITwoSnakes(snakeAI, snakeAI2, food, desk);
                 moveSnakeAITwoSnakes(snakeAI2, snakeAI, food, desk);
                 drawDesk_2_snakes(desk, snakeAI, snakeAI2, food, sec, fb);
-                if (snakeAI->gameOver || snakeAI2->gameOver){
+                if (snakeAI->gameOver || snakeAI2->gameOver)
                     break;
-                }
             }
         }
     }
