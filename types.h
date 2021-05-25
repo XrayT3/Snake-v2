@@ -1,12 +1,6 @@
 
 #include <stdbool.h>
 
-//Snake food data type
-// typedef struct {
-//     int x;
-//     int y;
-// } food_t;
-
 //Cell data type
 typedef struct {
     int x;

@@ -18,7 +18,6 @@ void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food
         snake->snake_skeleton[k].x = snake->snake_skeleton[k - 1].x;
         snake->snake_skeleton[k].y = snake->snake_skeleton[k - 1].y;
     }
-
     if (r==1)
     {   
         if (ch == 'a') {
@@ -39,7 +38,6 @@ void moveSnakeManualTwoSnakes(snake_t *snake, snake_t *secondSnake, cell_t *food
         // printf("Gameover!\n");
         snake->gameOver = true;
     }
-
     snakeEats(food, snake, secondSnake, desk, lastCoords[0], lastCoords[1]);
 }
 
@@ -99,34 +97,29 @@ int checkOtherSnakeCollisions(snake_t *snake, snake_t *secondSnake) {
 }
 
 int obstacleBeforeSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *desk) {
-    int ret = 0;
     if (
         snake->direction == UP &&
         snake->snake_skeleton[0].y == 1
     ) {
-        ret = 1;
-        return ret;
+        return 1;
     }
     else if (
         snake->direction == DOWN &&
         snake->snake_skeleton[0].y == desk->height - 1
     ) {
-        ret = 1;
-        return ret;
+        return 1;
     }
     else if (
         snake->direction == LEFT &&
         snake->snake_skeleton[0].x == 1
     ) {
-        ret = 1;
-        return ret;
+        return 1;
     }
     else if (
         snake->direction == RIGHT &&
         snake->snake_skeleton[0].x == desk->width - 1
     ) {
-        ret = 1;
-        return ret;
+        return 1;
     }
     for (int k = 0; k < snake->length; k++) {
         if (
@@ -134,32 +127,28 @@ int obstacleBeforeSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *de
             snake->snake_skeleton[0].y == (snake->snake_skeleton[k].y + 1)  &&
             snake->snake_skeleton[0].x == snake->snake_skeleton[k].x    
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == DOWN                                                        &&
             snake->snake_skeleton[0].y == (snake->snake_skeleton[k].y - 1)  &&
             snake->snake_skeleton[0].x == snake->snake_skeleton[k].x
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == LEFT                                                        &&
             snake->snake_skeleton[0].x == (snake->snake_skeleton[k].x + 1)  &&
             snake->snake_skeleton[0].y == snake->snake_skeleton[k].y  
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == RIGHT                                                       &&
             snake->snake_skeleton[0].x == (snake->snake_skeleton[k].x - 1)  &&
             snake->snake_skeleton[0].y == snake->snake_skeleton[k].y  
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
     }
     for (int k = 0; k < snake->length; k++) {
@@ -168,35 +157,31 @@ int obstacleBeforeSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake, desk_t *de
             snake->snake_skeleton[0].y == (otherSnake->snake_skeleton[k].y + 1)  &&
             snake->snake_skeleton[0].x == otherSnake->snake_skeleton[k].x    
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == DOWN                                                        &&
             snake->snake_skeleton[0].y == (otherSnake->snake_skeleton[k].y - 1)  &&
             snake->snake_skeleton[0].x == otherSnake->snake_skeleton[k].x
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == LEFT                                                        &&
             snake->snake_skeleton[0].x == (otherSnake->snake_skeleton[k].x + 1)  &&
             snake->snake_skeleton[0].y == otherSnake->snake_skeleton[k].y  
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
         else if (
             snake->direction == RIGHT                                                       &&
             snake->snake_skeleton[0].x == (otherSnake->snake_skeleton[k].x - 1)  &&
             snake->snake_skeleton[0].y == otherSnake->snake_skeleton[k].y  
         ) {
-            ret = 1;
-            return ret;
+            return 1;
         }
     }
-    return ret;
+    return 0;
 }
 
 int snakeLeftOfSnakeTwoSnakes(snake_t *snake, snake_t *otherSnake) {

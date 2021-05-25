@@ -6,7 +6,6 @@
 #include "snake.h"
 
 snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int initSnakeY, char turnLeft, char turnRight, desk_t* desk) {
-
     snake_t *snake = (snake_t *)malloc(sizeof(snake_t));
     snake->length = 2;
     snake->max_length = displayWidth * displayHeight;
@@ -24,7 +23,6 @@ snake_t *initSnake(int displayWidth, int displayHeight, int initSnakeX, int init
 }
 
 snake_t *initSnakeAI(int displayWidth, int displayHeight, int initSnakeX, int initSnakeY, desk_t* desk) {
-
     snake_t *snake = (snake_t *)malloc(sizeof(snake_t));
     snake->length = 2;
     snake->max_length = displayWidth * displayHeight;
@@ -58,7 +56,7 @@ void moveSnakeManual(snake_t *snake, cell_t *food, desk_t *desk){
         snake->snake_skeleton[k].x = snake->snake_skeleton[k - 1].x;
         snake->snake_skeleton[k].y = snake->snake_skeleton[k - 1].y;
     }
-    if (r==1)
+    if (r == 1)
     {   
         if (ch == snake->turnLeft) {
           snakeTurnLeft(snake);
@@ -112,7 +110,6 @@ void moveSnakeAI(snake_t *snake, cell_t *food, desk_t *desk) {
 }
 
 void snakeStep(snake_t *snake, desk_t *desk) {
-
     switch (snake->direction) {
         case LEFT:
             snake->snake_skeleton[0].x -= 1;
@@ -153,9 +150,7 @@ bool checkCollisions(snake_t *snake, desk_t *desk) {
 }
 
 void snakeController(snake_t *snake, desk_t *desk, cell_t *food) {
-
     int dx, dy;
-
     dx = food->x - snake->snake_skeleton[0].x;
     dy = food->y - snake->snake_skeleton[0].y;
 
