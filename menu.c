@@ -240,7 +240,7 @@ void drawDesk_2_snakes(desk_t *desk, snake_t *snake, snake_t *snake2, cell_t *fo
                         if(k == 0)
                             draw_snake(j*size_Cell, i*size_Cell, 1055); // draw head snake
                         else
-                            draw_snake(j*size_Cell, i*size_Cell, 223); // 31 blue snake
+                            draw_snake(j*size_Cell, i*size_Cell, 63); // blue snake
                     }
                 }
                 for (int k = 0; k < snake2->length; k++) {
@@ -250,9 +250,9 @@ void drawDesk_2_snakes(desk_t *desk, snake_t *snake, snake_t *snake2, cell_t *fo
                     )
                     {
                         if(k == 0)
-                            draw_snake(j*size_Cell, i*size_Cell, 64203); // draw head snake
+                            draw_snake(j*size_Cell, i*size_Cell, 51200); // draw head snake
                         else
-                            draw_snake(j*size_Cell, i*size_Cell, 63488); //2016 green snake2
+                            draw_snake(j*size_Cell, i*size_Cell, 63488); //red snake2
                     }
                 }
             }
