@@ -7,9 +7,10 @@ CXXFLAGS = -g -std=gnu++11 -O1 -Wall
 LDFLAGS = -lrt -lpthread
 #LDLIBS = -lm
 
-SOURCES = change_me.c mzapo_phys.c mzapo_parlcd.c serialize_lock.c
-#SOURCES += font_prop14x16.c font_rom8x16.c
-TARGET_EXE = change_me
+SOURCES = SOURCES = desk.c food.c gui.h gui.c menu.h menu.c snake.h snake_types.h two_snakes.c main.c snake.c
+SOURCES += font_rom8x16.c mzapo_parlcd.c mzapo_phys.c
+SOURCES +=  mzapo_parlcd.h mzapo_phys.h mzapo_regs.h font_types.h
+TARGET_EXE = main
 #TARGET_IP ?= 192.168.202.127
 ifeq ($(TARGET_IP),)
 ifneq ($(filter debug run,$(MAKECMDGOALS)),)
