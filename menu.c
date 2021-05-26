@@ -36,15 +36,21 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
         fb[ptr] = 0u;
     char str[] = "Game over";
     char* ch = str;
-    int x = 54;
+    int x = 20;
     for (int i = 0; i < 9; i++) {
-        draw_char(x, 10, *ch, size_GameOver, 63519);
+        draw_char(x, 10, *ch, size_GameOver, 0xF800);
         x += size_GameOver * char_width(*ch) + 2;
         ch++;
     }
-    x = 220;
-    if (score == 0)
-        draw_char(x, 100, '0', 4, 63519); // size_score = 4;
+    char SCORE[] = "Score:"; // 6
+    char* SCO = SCORE;
+    x = 20;
+    for (int i = 0; i < 6; i++) {
+        draw_char(x, 90, *SCO, 5, 0xF01F);
+        x += 5 * char_width(*SCO) + 2;
+        SCO++;
+    }
+    x = 300;
     char str1[3] = "0";
     int idx = 0;
     while (score != 0) {
@@ -52,21 +58,23 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
         score /= 10;
         idx++;
     }
+    if (score == 0)
+        draw_char(x, 90, '0', 5, 63519); // size_score = 5;
     for (int i = idx - 1; i >= 0; i--) {
-        draw_char(x, 100, str1[i], 4, 63519); // size_score = 4;
-        x += 4 * char_width(str1[i]) + 2; // size_score = 4;
+        draw_char(x, 90, str1[i], 5, 63519); // size_score = 5;
+        x += 5 * char_width(str1[i]) + 2; // size_score = 5;
     }
     char RETRY[] = "RETRY"; // 5
     char* RE = RETRY;
-    x = 142 - (24 * retry);
+    x = 20;
     for (int i = 0; i < 5; i++) {
-        draw_char(x, 180, *RE, retry + size_retry, 63519 + (2016 * retry));
+        draw_char(x, 190, *RE, retry + size_retry, 63519 + (2016 * retry));
         x += (size_retry + retry) * char_width(*RE) + 2;
         RE++;
     }
     char QUIT[] = "QUIT"; // 4
     char* QU = QUIT;
-    x = 173 - (13 * quit);
+    x = 20;
     for (int i = 0; i < 4; i++) {
         draw_char(x, 250, *QU, quit + size_quit, 63519 + (2016 * quit));
         x += (size_quit + quit) * char_width(*QU) + 2;
