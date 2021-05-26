@@ -15,8 +15,8 @@ uint32_t rgb_knobs_value;
 
 int size_Cell = 20;
 int size_GameOver = 5;
-int size_retry = 4;
-int size_quit = 4;
+int size_retry = 3;
+int size_quit = 3;
 int size_standard = 5;
 int size_demo = 5;
 int size_speed = 5;
@@ -53,13 +53,13 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
     x = 300;
     char str1[3] = "0";
     int idx = 0;
+    if (score == 0)
+        draw_char(x, 90, '0', 5, 63519); // size_score = 5;
     while (score != 0) {
         str1[idx] = score % 10 + '0';
         score /= 10;
         idx++;
     }
-    if (score == 0)
-        draw_char(x, 90, '0', 5, 63519); // size_score = 5;
     for (int i = idx - 1; i >= 0; i--) {
         draw_char(x, 90, str1[i], 5, 63519); // size_score = 5;
         x += 5 * char_width(str1[i]) + 2; // size_score = 5;
