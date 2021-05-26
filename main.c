@@ -118,7 +118,6 @@ start_game:
                 break;
         }
     }
-    // draw_set_players();
     speed = 100 * fast + 250 * medium + 500 * slow;
     start = clock();
     rgb_LED(65280); //green

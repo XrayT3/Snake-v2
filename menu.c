@@ -46,7 +46,7 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
     char* SCO = SCORE;
     x = 20;
     for (int i = 0; i < 6; i++) {
-        draw_char(x, 90, *SCO, 5, 0xF01F);
+        draw_char(x, 90, *SCO, 5, 63519);
         x += 5 * char_width(*SCO) + 2;
         SCO++;
     }
@@ -64,7 +64,7 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
         draw_char(x, 90, str1[i], 5, 63519); // size_score = 5;
         x += 5 * char_width(str1[i]) + 2; // size_score = 5;
     }
-    char RETRY[] = "RETRY"; // 5
+    char RETRY[] = "RETRY"; // 3
     char* RE = RETRY;
     x = 20;
     for (int i = 0; i < 5; i++) {
@@ -72,7 +72,7 @@ void draw_EndGame(unsigned short* fb1, int score, int retry, int quit)
         x += (size_retry + retry) * char_width(*RE) + 2;
         RE++;
     }
-    char QUIT[] = "QUIT"; // 4
+    char QUIT[] = "QUIT"; // 3
     char* QU = QUIT;
     x = 20;
     for (int i = 0; i < 4; i++) {
